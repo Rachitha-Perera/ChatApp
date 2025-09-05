@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'qr_scan_page.dart';
+
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -51,6 +53,14 @@ class _HomePageState extends State<HomePage>
           actions: [
             IconButton(icon: const Icon(Icons.search), onPressed: () {}),
             IconButton(icon: const Icon(Icons.more_vert), onPressed: () {}),
+
+            IconButton(
+              icon: Icon(Icons.qr_code_scanner),
+              onPressed: () {
+                Navigator.pushNamed(context, '/qr_scan');
+              },
+            )
+
           ],
           bottom: const TabBar(
             tabs: [

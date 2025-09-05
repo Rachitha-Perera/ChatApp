@@ -2,6 +2,7 @@ import 'package:chatapp/pages/signup_page.dart';
 import 'package:flutter/material.dart';
 import 'pages/login_page.dart';
 import 'pages/Home_page.dart';
+import 'pages/qr_scan_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -23,6 +24,7 @@ class MyApp extends StatelessWidget {
         "/login": (context) => const LoginPage(),
         "/home": (context) => const HomePage(),
         "/signup": (context) => const SignUpPage(),
+        "/qr_scan": (context) => QRScanPage(),
       },
     );
   }
