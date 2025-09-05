@@ -1,48 +1,11 @@
 import 'package:flutter/material.dart';
 
-class HomePage extends StatefulWidget {
+class HomePage extends StatelessWidget {
   const HomePage({super.key});
 
   @override
-  State<HomePage> createState() => _HomePageState();
-}
-
-class _HomePageState extends State<HomePage>
-    with SingleTickerProviderStateMixin {
-  late final TabController _tabController;
-
-  @override
-  void initState() {
-    super.initState();
-    _tabController = TabController(length: 3, vsync: this);
-  }
-
-  @override
-  void dispose() {
-    _tabController.dispose();
-    super.dispose();
-  }
-
-  Widget _buildChatItem(String name, String message, String time) {
-    return ListTile(
-      leading: CircleAvatar(
-        backgroundColor: Colors.blueAccent,
-        child: Text(name[0], style: const TextStyle(color: Colors.white)),
-      ),
-      title: Text(name,
-          style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 16)),
-      subtitle: Text(message,
-          style: const TextStyle(color: Colors.grey, fontSize: 14)),
-      trailing: Text(time, style: const TextStyle(color: Colors.grey)),
-      onTap: () {
-        // TODO: Navigate to chat page
-      },
-    );
-  }
-
-  @override
   Widget build(BuildContext context) {
-    return DefaultTabController( // ✅ Wrap with DefaultTabController to prevent null issues
+    return DefaultTabController( // ✅ Only DefaultTabController is needed
       length: 3,
       child: Scaffold(
         appBar: AppBar(
@@ -62,13 +25,8 @@ class _HomePageState extends State<HomePage>
         ),
         body: const TabBarView(
           children: [
-            // Chats Tab
             ChatsTab(),
-
-            // Groups Tab
             GroupsTab(),
-
-            // Calls Tab
             CallsTab(),
           ],
         ),
@@ -84,7 +42,6 @@ class _HomePageState extends State<HomePage>
   }
 }
 
-// ✅ Extracted widgets so TabBarView can be const-safe
 class ChatsTab extends StatelessWidget {
   const ChatsTab({super.key});
 
@@ -143,11 +100,18 @@ class ChatItem extends StatelessWidget {
         backgroundColor: Colors.blueAccent,
         child: Text(name[0], style: const TextStyle(color: Colors.white)),
       ),
-      title: Text(name,
-          style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 16)),
-      subtitle: Text(message,
-          style: const TextStyle(color: Colors.grey, fontSize: 14)),
+      title: Text(
+        name,
+        style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+      ),
+      subtitle: Text(
+        message,
+        style: const TextStyle(color: Colors.grey, fontSize: 14),
+      ),
       trailing: Text(time, style: const TextStyle(color: Colors.grey)),
+      onTap: () {
+        // TODO: Navigate to chat page
+      },
     );
   }
 }

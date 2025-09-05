@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1033496016943",
+    "project_id": "chatapp-6ee80",
+    "storage_bucket": "chatapp-6ee80.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1033496016943:android:a8c875b1e5ceb51e146eda",
+        "android_client_info": {
+          "package_name": "com.company.MusiChat"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAwU2jrPTkvVy8QgakARhgP7JaPKqimHPE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
